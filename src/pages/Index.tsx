@@ -3,6 +3,7 @@ import { BackgroundOrbs } from '@/components/dashboard/BackgroundOrbs';
 import { ClockWidget } from '@/components/dashboard/ClockWidget';
 import {TimerWidget} from "@/components/dashboard/TimerWidget";
 import {CalendarWidget} from "@/components/dashboard/CalendarWidget";
+import {WeatherWidget} from "@/components/dashboard/WeatherWidget";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
               <ClockWidget />
               <TimerWidget />
               <CalendarWidget />
+              <WeatherWidget />
           </div>
 
       </div>

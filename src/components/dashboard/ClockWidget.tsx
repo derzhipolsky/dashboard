@@ -57,6 +57,7 @@ export function ClockWidget() {
             :
           </motion.span>
           <motion.span
+            key={minutes}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl font-light tabular-nums text-foreground"
