@@ -20,7 +20,7 @@ interface CurrencyRate {
 
 interface WidgetSettings {
     enabledCurrencies: string[];
-    updateInterval: number; // ms
+    updateInterval: number;
 }
 
 const DEFAULT_SETTINGS: WidgetSettings = {
@@ -164,7 +164,6 @@ export function CurrencyWidget() {
                             {i18n.language === 'ru' ? 'Настройки виджета' : 'Widget settings'}
                         </h3>
 
-                        {/* Валюты */}
                         <div className="space-y-2">
                             <p className="text-xs text-muted-foreground">
                                 {i18n.language === 'ru' ? 'Отображаемые валюты' : 'Displayed currencies'}
@@ -184,7 +183,6 @@ export function CurrencyWidget() {
                             ))}
                         </div>
 
-                        {/* Интервал обновления */}
                         <div className="space-y-2">
                             <p className="text-xs text-muted-foreground">
                                 {i18n.language === 'ru' ? 'Интервал обновления' : 'Update interval'}
