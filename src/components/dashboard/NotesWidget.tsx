@@ -115,7 +115,7 @@ export function NotesWidget() {
         </motion.button>
       </div>
 
-      <div className="max-h-56 space-y-2 overflow-y-auto">
+      <div className="max-h-56 space-y-2 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <AnimatePresence>
           {notes.length > 0 ? (
             notes.map((note) => (

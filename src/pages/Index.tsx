@@ -7,6 +7,7 @@ import {WeatherWidget} from "@/components/dashboard/WeatherWidget";
 import {CurrencyWidget} from "@/components/dashboard/CurrencyWidget";
 import {NotesWidget} from "@/components/dashboard/NotesWidget";
 import {ScheduleWidget} from "@/components/dashboard/ScheduleWidget";
+import {MusicPlayer} from "@/components/dashboard/MusicPlayer";
 
 const Index = () => {
   return (
@@ -23,6 +24,9 @@ const Index = () => {
               <CurrencyWidget />
               <NotesWidget />
               <ScheduleWidget />
+              <div className="md:col-span-2 lg:col-span-2">
+                  <MusicPlayer />
+              </div>
           </div>
 
       </div>

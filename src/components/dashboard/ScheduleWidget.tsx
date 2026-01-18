@@ -85,7 +85,7 @@ export function ScheduleWidget() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className="glass-card p-6"
+      className="glass-card p-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
     >
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -152,7 +152,7 @@ export function ScheduleWidget() {
         )}
       </AnimatePresence>
 
-      <div className="max-h-64 space-y-4 overflow-y-auto">
+      <div className="max-h-64 space-y-4 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div>
           <h3 className="mb-2 text-sm font-medium text-muted-foreground">{t('today')}</h3>
           <div className="space-y-2">
