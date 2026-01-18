@@ -32,5 +32,8 @@
   "ms": "m/s",
   "updated": "Updated",
   "addEvent": "Add event",
-  "eventTitle": "Event title"
+  "eventTitle": "Event title",
+  "interval1": "1 min",
+  "interval5": "5 min",
+  "interval10": "10 min"
 }

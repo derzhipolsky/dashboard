@@ -32,5 +32,8 @@
   "ms": "м/с",
   "updated": "Обновлено",
   "addEvent": "Добавить событие",
-  "eventTitle": "Название события"
+  "eventTitle": "Название события",
+  "interval1": "1 мин",
+  "interval5": "5 мин",
+  "interval10": "10 мин"
 }
