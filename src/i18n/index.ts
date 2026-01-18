@@ -1,94 +1,36 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import HttpBackend from 'i18next-http-backend';
 
-const resources = {
-  en: {
-    translation: {
-      dashboard: 'Dashboard',
-      weather: 'Weather',
-      currency: 'Currency',
-      schedule: 'Schedule',
-      notes: 'Notes',
-      settings: 'Settings',
-      language: 'Language',
-      theme: 'Theme',
-      light: 'Light',
-      dark: 'Dark',
-      feelsLike: 'Feels like',
-      humidity: 'Humidity',
-      wind: 'Wind',
-      addNote: 'Add note...',
-      noNotes: 'No notes yet',
-      today: 'Today',
-      tomorrow: 'Tomorrow',
-      noEvents: 'No events scheduled',
-      usd: 'USD',
-      eur: 'EUR',
-      gbp: 'GBP',
-      cny: 'CNY',
-      rub: 'RUB',
-      moscow: 'Moscow',
-      clear: 'Clear',
-      cloudy: 'Cloudy',
-      rain: 'Rain',
-      snow: 'Snow',
-      sunny: 'Sunny',
-      deleteNote: 'Delete',
-      ms: 'm/s',
-      updated: 'Updated',
-      addEvent: 'Add event',
-      eventTitle: 'Event title',
-    },
-  },
-  ru: {
-    translation: {
-      dashboard: 'Дашборд',
-      weather: 'Погода',
-      currency: 'Валюты',
-      schedule: 'Расписание',
-      notes: 'Заметки',
-      settings: 'Настройки',
-      language: 'Язык',
-      theme: 'Тема',
-      light: 'Светлая',
-      dark: 'Тёмная',
-      feelsLike: 'Ощущается как',
-      humidity: 'Влажность',
-      wind: 'Ветер',
-      addNote: 'Добавить заметку...',
-      noNotes: 'Пока нет заметок',
-      today: 'Сегодня',
-      tomorrow: 'Завтра',
-      noEvents: 'Нет запланированных событий',
-      usd: 'Доллар',
-      eur: 'Евро',
-      gbp: 'Фунт',
-      cny: 'Юань',
-      rub: 'Рубль',
-      moscow: 'Москва',
-      clear: 'Ясно',
-      cloudy: 'Облачно',
-      rain: 'Дождь',
-      snow: 'Снег',
-      sunny: 'Солнечно',
-      deleteNote: 'Удалить',
-      ms: 'м/с',
-      updated: 'Обновлено',
-      addEvent: 'Добавить событие',
-      eventTitle: 'Название события',
-    },
-  },
-};
+const savedLanguage = localStorage.getItem('i18nLanguage');
+const browserLanguage = navigator.language.split('-')[0];
+const defaultLanguage = savedLanguage || (browserLanguage === 'ru' ? 'ru' : 'en');
 
 i18n
-  .use(initReactI18next)
-  .init({
-    resources,
-    lng: localStorage.getItem('language') || 'ru',
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+    .use(HttpBackend)
+    .use(initReactI18next)
+    .init({
+        lng: defaultLanguage,
+        fallbackLng: ['en', 'ru'],
+
+        ns: ['main'],
+        defaultNS: 'main',
+
+        backend: {
+            loadPath: '/dashboard/locales/{{lng}}/{{ns}}.json'
+        },
+
+        interpolation: {
+            escapeValue: false
+        },
+
+        react: {
+            useSuspense: false
+        }
+    });
+
+i18n.on('languageChanged', (lng) => {
+    localStorage.setItem('i18nLanguage', lng);
+});
 
 export default i18n;
