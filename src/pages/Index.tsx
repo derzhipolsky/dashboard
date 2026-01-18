@@ -2,6 +2,7 @@ import { SettingsPanel } from '@/components/dashboard/SettingsPanel';
 import { BackgroundOrbs } from '@/components/dashboard/BackgroundOrbs';
 import { ClockWidget } from '@/components/dashboard/ClockWidget';
 import {TimerWidget} from "@/components/dashboard/TimerWidget";
+import {CalendarWidget} from "@/components/dashboard/CalendarWidget";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ClockWidget />
               <TimerWidget />
+              <CalendarWidget />
           </div>
 
       </div>

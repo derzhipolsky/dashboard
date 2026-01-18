@@ -5,7 +5,7 @@ import { Timer, Play, Pause, RotateCcw, Plus, Minus } from 'lucide-react';
 
 export function TimerWidget() {
   const { i18n } = useTranslation();
-  const [timeLeft, setTimeLeft] = useState(5 * 60); // 5 minutes default
+  const [timeLeft, setTimeLeft] = useState(5 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [initialTime, setInitialTime] = useState(5 * 60);
   const audioRef = useRef<HTMLAudioElement | null>(null);
