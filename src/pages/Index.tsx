@@ -6,6 +6,7 @@ import {CalendarWidget} from "@/components/dashboard/CalendarWidget";
 import {WeatherWidget} from "@/components/dashboard/WeatherWidget";
 import {CurrencyWidget} from "@/components/dashboard/CurrencyWidget";
 import {NotesWidget} from "@/components/dashboard/NotesWidget";
+import {ScheduleWidget} from "@/components/dashboard/ScheduleWidget";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
               <WeatherWidget />
               <CurrencyWidget />
               <NotesWidget />
+              <ScheduleWidget />
           </div>
 
       </div>
