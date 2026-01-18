@@ -1,5 +1,6 @@
 import { SettingsPanel } from '@/components/dashboard/SettingsPanel';
 import { BackgroundOrbs } from '@/components/dashboard/BackgroundOrbs';
+import { ClockWidget } from '@/components/dashboard/ClockWidget';
 
 const Index = () => {
   return (
@@ -8,6 +9,9 @@ const Index = () => {
       
       <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <SettingsPanel />
+          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <ClockWidget />
+          </div>
 
       </div>
     </div>
