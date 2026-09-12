@@ -119,11 +119,11 @@ export function CurrencyWidget() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-card p-6"
+            className="glass-card liquid-surface dashboard-card accent-mint h-full p-6"
         >
             <div className="mb-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <div className="widget-icon" style={{ background: 'var(--currency-gradient)' }}>
+                    <div className="widget-icon">
                         <DollarSign className="h-5 w-5" />
                     </div>
                     <h2 className="text-lg font-semibold text-foreground">{t('currency')}</h2>
@@ -173,7 +173,7 @@ export function CurrencyWidget() {
                                 <button
                                     key={code}
                                     onClick={() => toggleCurrency(code)}
-                                    className="flex w-full items-center justify-between rounded-lg bg-secondary/40 p-2 hover:bg-secondary"
+                                    className="inner-glass flex w-full items-center justify-between rounded-lg p-2"
                                 >
                                     <span>{code}</span>
                                     {settings.enabledCurrencies.includes(code) && (
@@ -192,7 +192,7 @@ export function CurrencyWidget() {
                                 <button
                                     key={opt.value}
                                     onClick={() => saveSettings({ ...settings, updateInterval: opt.value })}
-                                    className="flex w-full items-center justify-between rounded-lg bg-secondary/40 p-2 hover:bg-secondary"
+                                    className="inner-glass flex w-full items-center justify-between rounded-lg p-2"
                                 >
                                     <span>{opt.label}</span>
                                     {settings.updateInterval === opt.value && (
@@ -219,7 +219,7 @@ export function CurrencyWidget() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.3, delay: 0.1 * index }}
-                                    className="flex items-center justify-between rounded-xl bg-secondary/50 p-3 transition-all hover:bg-secondary"
+                                    className="inner-glass flex items-center justify-between rounded-xl p-3"
                                 >
                                     <div className="flex flex-col">
                     <span className="text-sm font-medium uppercase text-foreground">

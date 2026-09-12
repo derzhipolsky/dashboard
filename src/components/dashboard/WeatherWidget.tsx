@@ -243,11 +243,11 @@ export function WeatherWidget() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-card p-6"
+            className="glass-card liquid-surface dashboard-card accent-cyan h-full p-6"
         >
             <div className="mb-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <div className="widget-icon" style={{ background: 'var(--weather-gradient)' }}>
+                    <div className="widget-icon">
                         <Cloud className="h-5 w-5" />
                     </div>
                     <h2 className="text-lg font-semibold text-foreground">{t('weather')}</h2>
@@ -297,7 +297,7 @@ export function WeatherWidget() {
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         onClick={() => selectCity(city)}
-                                        className="flex w-full items-center gap-2 rounded-xl bg-secondary/50 p-3 text-left transition-colors hover:bg-secondary"
+                                        className="inner-glass flex w-full items-center gap-2 rounded-xl p-3 text-left"
                                     >
                                         <MapPin className="h-4 w-4 text-muted-foreground" />
                                         <span className="text-sm">{city.name}</span>
@@ -394,7 +394,7 @@ export function WeatherWidget() {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="rounded-xl bg-secondary/40 p-3 text-center"
+                                        className="inner-glass rounded-xl p-3 text-center"
                                     >
                                         <p className="text-xs text-muted-foreground">
                                             {new Date(day.date).toLocaleDateString(i18n.language, {

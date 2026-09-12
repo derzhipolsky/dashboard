@@ -11,19 +11,30 @@ interface Note {
 }
 
 const noteColors = [
-  'bg-yellow-100 dark:bg-yellow-900/30',
-  'bg-blue-100 dark:bg-blue-900/30',
-  'bg-green-100 dark:bg-green-900/30',
-  'bg-pink-100 dark:bg-pink-900/30',
-  'bg-purple-100 dark:bg-purple-900/30',
+  'note-sun',
+  'note-sky',
+  'note-mint',
+  'note-rose',
+  'note-lilac',
 ];
+
+function readSavedNotes(): Note[] {
+  try {
+    const saved = localStorage.getItem('dashboard-notes');
+    if (!saved) return [];
+
+    return (JSON.parse(saved) as Note[]).map((note, index) => ({
+      ...note,
+      color: note.color.startsWith('note-') ? note.color : noteColors[index % noteColors.length],
+    }));
+  } catch {
+    return [];
+  }
+}
 
 export function NotesWidget() {
   const { t, i18n } = useTranslation();
-  const [notes, setNotes] = useState<Note[]>(() => {
-    const saved = localStorage.getItem('dashboard-notes');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [notes, setNotes] = useState<Note[]>(readSavedNotes);
   const [newNote, setNewNote] = useState('');
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editText, setEditText] = useState('');
@@ -87,10 +98,10 @@ export function NotesWidget() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.4 }}
-      className="glass-card p-6"
+      className="glass-card liquid-surface dashboard-card accent-yellow h-full p-6"
     >
       <div className="mb-4 flex items-center gap-3">
-        <div className="widget-icon" style={{ background: 'var(--notes-gradient)' }}>
+        <div className="widget-icon">
           <StickyNote className="h-5 w-5" />
         </div>
         <h2 className="text-lg font-semibold text-foreground">{t('notes')}</h2>
@@ -124,7 +135,7 @@ export function NotesWidget() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className={`group rounded-xl p-3 transition-all ${note.color}`}
+                className={`inner-glass note-sheet group rounded-xl p-3 ${note.color}`}
               >
                 {editingId === note.id ? (
                   <div className="flex flex-col gap-2">

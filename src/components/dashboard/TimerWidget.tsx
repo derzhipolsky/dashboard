@@ -64,10 +64,10 @@ export function TimerWidget() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.7 }}
-      className="glass-card p-6"
+      className="glass-card liquid-surface dashboard-card accent-orange h-full p-6"
     >
       <div className="mb-4 flex items-center gap-3">
-        <div className="widget-icon bg-gradient-to-br from-orange-500 to-red-500">
+        <div className="widget-icon">
           <Timer className="h-5 w-5" />
         </div>
         <h2 className="text-lg font-semibold text-foreground">

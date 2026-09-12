@@ -393,7 +393,7 @@ export function MusicPlayer() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
-      className="glass-card relative overflow-hidden p-6 min-h-[450px]"
+      className="glass-card liquid-surface dashboard-card accent-pink relative h-full min-h-[450px] overflow-hidden p-6"
     >
       <input
         ref={fileInputRef}
@@ -409,7 +409,7 @@ export function MusicPlayer() {
       <div className="relative z-10">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="widget-icon bg-gradient-to-br from-pink-500 to-purple-600">
+            <div className="widget-icon">
               <Music className="h-5 w-5" />
             </div>
             <h2 className="text-lg font-semibold text-foreground">
@@ -450,10 +450,10 @@ export function MusicPlayer() {
                 <motion.div
                   key={track.id}
                   whileHover={{ scale: 1.02 }}
-                  className={`flex w-full items-center justify-between rounded-xl p-3 transition-all ${
-                    index === currentTrackIndex 
-                      ? 'bg-primary/20 text-primary' 
-                      : 'bg-secondary/50 hover:bg-secondary'
+                  className={`inner-glass flex w-full items-center justify-between rounded-xl p-3 ${
+                    index === currentTrackIndex
+                      ? 'inner-glass-active text-primary'
+                      : ''
                   }`}
                 >
                   <button
